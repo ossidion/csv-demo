@@ -1,0 +1,33 @@
+<h1>Users</h1>
+
+<% if flash[:notice] %>
+  <p class="notice"><%= flash[:notice] %></p>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Full Name</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= "#{user.first_name} #{user.last_name}" %></td>
+        <td><%= user.email %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<hr>
+
+<h2>Import Users from CSV</h2>
+
+<%= form_tag import_users_path, multipart: true do %>
+  <%= file_field_tag :file, accept: ".csv" %>
+  <%= submit_tag "Import Users" %>
+<% end %>

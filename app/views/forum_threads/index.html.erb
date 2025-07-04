@@ -1,0 +1,9 @@
+<!-- app/views/forum_threads/index.html.erb -->
+
+<h1>Forum Threads</h1>
+
+<ul>
+  <% @forum_threads.each do |thread| %>
+    <li><%= thread.title %></li>
+  <% end %>
+</ul>
