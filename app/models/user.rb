@@ -29,4 +29,23 @@ class User < ActiveRecord::Base
     user.assign_attributes row.to_hash.slice(:first_name, :last_name)
     user
   end
+
+  def self.to_csv
+    attributes = %w{id email first_name last_name}
+    CSV.generate(headers: true) do |csv|
+      csv << attributes
+
+      all.each do |user|
+        csv << user.attributes.values_at(*attributes)
+      end
+    end
+  end
+
+  def name
+    if deleted_at?
+      "Deleted User"
+    else
+      "#{first_name} #{last_name}"
+    end
+  end
 end
