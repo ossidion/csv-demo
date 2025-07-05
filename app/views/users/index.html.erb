@@ -27,7 +27,18 @@
 
 <h2>Import Users from CSV</h2>
 
-<%= form_tag import_users_path, multipart: true do %>
-  <%= file_field_tag :file, accept: ".csv" %>
-  <%= submit_tag "Import Users" %>
-<% end %>
+
+<%= form_for @import, url: import_users_path, multipart: true do |f| %>
+  <% if @import.errors.any? %>
+    <div class="alert alert-error">
+      <% @import.errors.full_messages.each do |msg| %>
+        <div><%= msg %></div>
+      <% end %>
+      </div>
+      <% end %>
+
+  <%= f.file_field :file %>
+  <%= f.submit "Upload" %>
+  <% end %>
+
+
