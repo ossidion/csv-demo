@@ -9,16 +9,14 @@ class UsersController < ApplicationController
   #     format.csv { send_data @users.to_csv, filename: "users-#{Date.today}" }
   #   end
   # end
-
-  def import 
-    @import = User::Import.new user_import_params
-    if @import.save
-      redirect_to users_path, notice: "Imported #{@import.imported_count} users"
-    else
-      @users = User.all
-      render action: :index, notice: "There were errors with your csv file"
-    # count = User.import params[:file]
-    # redirect_to users_path, notice: "Imported #{count} users"
+  
+def import
+  if params[:user_import].present?
+    file = params[:user_import][:file]
+    count = User.import(file)
+    redirect_to users_path, notice: "Imported #{count} users"
+  else
+    redirect_to users_path, notice: "Please select a CSV file to upload."
   end
 end
 
