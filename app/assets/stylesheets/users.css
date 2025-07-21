@@ -1,0 +1,69 @@
+h1, h2 {
+  font-family: Arial, sans-serif;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.notice {
+  background-color: #e6ffed;
+  color: #1a7f37;
+  padding: 0.75rem;
+  border: 1px solid #b6e6c8;
+  border-radius: 5px;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+  font-family: sans-serif;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.alert-error {
+  background-color: #ffe6e6;
+  color: #a10000;
+  padding: 0.75rem;
+  border: 1px solid #ffb3b3;
+  border-radius: 5px;
+  margin-bottom: 1.5rem;
+}
+
+form {
+  font-family: sans-serif;
+  margin-top: 1rem;
+}
+
+form input[type="file"] {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+}
+
+form input[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+  background-color: #0056b3;
+}
